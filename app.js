@@ -1,12 +1,26 @@
 
 function humanReadable(seconds) {
-  // TODO
+	var clockHoursRemainder = seconds % 3600;
+	var clockHours = (seconds - clockHoursRemainder) /3600;
+	var clockSeconds = seconds % 60;
+	var clockMinutes = (clockHoursRemainder - clockSeconds) / 60;
+	if(clockHours < 10){
+		clockHours = '0' + clockHours;
+	}
+	if(clockMinutes < 10){
+		clockMinutes = '0' + clockMinutes;
+	}	
+	if(clockSeconds < 10){
+		clockSeconds = '0' + clockSeconds;
+	}	
+	return clockHours + ':' + clockMinutes + ':' + clockSeconds;
 }
 
 
 
 
-//Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+//Write a function, which takes a non-negative integer (seconds) as input and returns
+//the time in a human-readable format (HH:MM:SS)
 //
 //HH = hours, padded to 2 digits, range: 00 - 99
 //MM = minutes, padded to 2 digits, range: 00 - 59
